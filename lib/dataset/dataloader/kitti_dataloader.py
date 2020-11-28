@@ -289,7 +289,7 @@ class KittiDataset(Dataset):
 
     def preprocess_batch(self):
         # if create_gt_dataset, then also create a boxes_numpy, saving all points
-        if cfg.TRAIN.AUGMENTATIONS.MIXUP.OPEN: # also save mixup database
+        if self.img_list in ['train', 'val', 'trainval'] and cfg.TRAIN.AUGMENTATIONS.MIXUP.OPEN: # also save mixup database
             mixup_label_dict = dict([(cls, []) for cls in self.mixup_db_class])
         with open(self.train_list, 'w') as f:
             for i in tqdm.tqdm(range(0, self.sample_num)):
