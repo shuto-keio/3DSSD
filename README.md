@@ -126,11 +126,13 @@ Currently we only support KITTI dataset, and NuScenes dataset will be supported 
 
 
 ```
-python lib/core/data_preprocessor.py --cfg configs/kitti/3dssd/3dssd.yaml --split training --img_list train
+cd lib
 
-python lib/core/data_preprocessor.py --cfg configs/kitti/3dssd/3dssd.yaml --split training --img_list val
+python -m core.data_preprocessor --cfg ../configs/kitti/3dssd/3dssd.yaml --split training --img_list train
 
-python lib/core/data_preprocessor.py --cfg configs/kitti/3dssd/3dssd.yaml --split testing --img_list test
+python -m core.data_preprocessor --cfg ../configs/kitti/3dssd/3dssd.yaml --split training --img_list val
+
+python -m core.data_preprocessor --cfg ../configs/kitti/3dssd/3dssd.yaml --split testing --img_list test
 ```
 
 The preprocessed data will be saved in directory **data/KITTI**. You can also modify the dataset path and saving path in configure file:
