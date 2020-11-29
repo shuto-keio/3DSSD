@@ -107,7 +107,7 @@ class KittiDataset(Dataset):
         cur_npy = self.train_npy_list[sample_idx]
        
         cur_npy_path = os.path.join(self.sv_npy_path, cur_npy)
-        sample_dict = np.load(cur_npy_path).tolist()
+        sample_dict = np.load(cur_npy_path, allow_pickle=True).tolist()
 
         sem_labels = sample_dict[maps_dict.KEY_LABEL_SEMSEG]
         sem_dists = sample_dict[maps_dict.KEY_LABEL_DIST]
