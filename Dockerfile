@@ -38,8 +38,9 @@ WORKDIR 3DSSD
 RUN python -V
 #RUN pip install -U tensorflow-gpu==1.4.0
 RUN pip install -r requirements.txt
-COPY tensorflow-1.4.0-cp36-cp36m-linux_x86_64.whl /root/3DSSD
-RUN pip install tensorflow-1.4.0-cp36-cp36m-linux_x86_64.whl	
+# # COPY tensorflow-1.4.0-cp36-cp36m-linux_x86_64.whl /root/3DSSD
+# RUN pip install tensorflow-1.4.0-cp36-cp36m-linux_x86_64.whl
+RUN pip install tensorflow-gpu==1.5
 
 ENV PYTHONPATH $PYTHONPATH:/root/3DSSD/lib:/root/3DSSD/myavi
 
